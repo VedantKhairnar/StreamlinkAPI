@@ -10,8 +10,9 @@ def get_query_string():
     print(url)
     try:
         streams = streamlink.streams(url)
+        print(streams['best'].url)
         return streams['best'].url
-        #return streams
+        # return streams
     except streamlink.NoPluginError:
         return None
 
