@@ -13,7 +13,10 @@ def get_query_string():
         keys = [k for k in streams.keys()]
         data = dict()
         for k in keys:
-            data[k] = streams[k].url 
+            try:
+                data[k] = streams[k].url 
+            except AttributeError:
+                pass
         return jsonify(data)
         
     except streamlink.NoPluginError:
