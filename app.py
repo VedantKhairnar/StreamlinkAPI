@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask,request,jsonify
 import streamlink
 
 app = Flask(__name__)
@@ -10,12 +10,14 @@ def get_query_string():
     print(url)
     try:
         streams = streamlink.streams(url)
-        print(streams['best'].url)
-        return streams['best'].url
-        # return streams
+        keys = [k for k in streams.keys()]
+        data = dict()
+        for k in keys:
+            data[k] = streams[k].url 
+        return jsonify(data)
+        
     except streamlink.NoPluginError:
         return None
-
 
 if __name__ == '__main__':
     app.run(debug=True)
