@@ -198,7 +198,7 @@ twitch-python==0.0.18
 twitchview==0.6.8
 tzlocal==2.1
 Unidecode==1.1.1
-urllib3==1.22
+urllib3==1.24.2
 vext==0.7.3
 vext.gi==0.7.0
 vidgear==0.1.7
